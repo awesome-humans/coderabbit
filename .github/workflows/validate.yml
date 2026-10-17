@@ -1,0 +1,30 @@
+name: Validate
+
+on:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # Weekly, Mondays 06:00 UTC. CodeRabbit changes its schema without a release
+    # here, so a key it drops or renames fails this run instead of being ignored.
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  config:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+
+      # CodeRabbit ignores an unknown key or a bad value silently, so a typo would
+      # change every repository's reviews without an error anywhere.
+      - name: Check .coderabbit.yaml against CodeRabbit's schema
+        run: >-
+          uvx check-jsonschema==0.38.2
+          --schemafile https://coderabbit.ai/integrations/schema.v2.json
+          .coderabbit.yaml
