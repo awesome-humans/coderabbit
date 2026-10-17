@@ -22,9 +22,11 @@ jobs:
       - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
 
       # CodeRabbit ignores an unknown key or a bad value silently, so a typo would
-      # change every repository's reviews without an error anywhere.
+      # change every repository's reviews without an error anywhere. Its schema
+      # leaves most objects open to unknown keys, so check against a closed copy.
       - name: Check .coderabbit.yaml against CodeRabbit's schema
-        run: >-
-          uvx check-jsonschema==0.38.2
-          --schemafile https://coderabbit.ai/integrations/schema.v2.json
-          .coderabbit.yaml
+        run: |
+          curl --fail --silent --show-error --location --output "$RUNNER_TEMP/schema.json" \
+            https://coderabbit.ai/integrations/schema.v2.json
+          python3 scripts/strict_schema.py "$RUNNER_TEMP/schema.json" "$RUNNER_TEMP/strict.json"
+          uvx check-jsonschema==0.38.2 --schemafile "$RUNNER_TEMP/strict.json" .coderabbit.yaml
