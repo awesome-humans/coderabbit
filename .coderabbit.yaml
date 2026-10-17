@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# Central configuration for every awesome-humans repository. A repository
+# without its own .coderabbit.yaml uses this file. A repository that needs an
+# override adds one with `inheritance: true`, which merges onto this file.
+language: en-GB
+
+reviews:
+  profile: chill
+  # Advisory only: CodeRabbit comments, and the owner's review stays the gate.
+  request_changes_workflow: false
+  poem: false
+  in_progress_fortune: false
+  auto_review:
+    drafts: false
+    # Renovate's pull requests only bump pins. Anyone can still ask for a
+    # review with `@coderabbitai review`.
+    ignore_usernames:
+      - renovate[bot]
+  path_filters:
+    - "!**/package-lock.json"
+    - "!**/uv.lock"
+    - "!**/Cargo.lock"
+    - "!**/packages.lock.json"
+    - "!.github/state/**"
+    - "!assets/diagrams/**"
+    - "!build/**"
+    - "!artifacts/**"
+    - "!pages/assets/fonts/**"
+  path_instructions:
+    - path: "**/*.md"
+      instructions: >-
+        Apply the Writing style section of this repository's AGENTS.md,
+        including its spelling rule. Flag prose that breaks it.
+    - path: "opinions/**"
+      instructions: >-
+        Check that every claim cites a source, and that every source id in the
+        frontmatter's `sources` is on the roster in AWESOME-HUMANS.md. Check
+        that the frontmatter is complete, as AGENTS.md's Metadata section
+        describes, and that the file follows Writing style for opinions.
+    - path: "templates/**"
+      instructions: >-
+        Check that the first-line metadata comment is complete, as AGENTS.md's
+        Metadata section describes, and that every source id in it is on the
+        roster in AWESOME-HUMANS.md.
