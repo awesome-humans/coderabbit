@@ -32,8 +32,11 @@ reviews:
   path_instructions:
     - path: "**/*.md"
       instructions: >-
-        Apply the Writing style section of this repository's AGENTS.md,
-        including its spelling rule. Flag prose that breaks it.
+        Apply the shared writing style in website's
+        pages/conventions/writing-style.md, including its spelling rules, and
+        the rules that this repository's AGENTS.md adds under Writing style,
+        such as its platform's spelling exception. Flag prose that breaks
+        them.
     - path: "opinions/**"
       instructions: >-
         Check that every claim cites a source, and that every source id in the
@@ -45,3 +48,13 @@ reviews:
         Check that the first-line metadata comment is complete, as AGENTS.md's
         Metadata section describes, and that every source id in it is on the
         roster in AWESOME-HUMANS.md.
+
+knowledge_base:
+  code_guidelines:
+    # The shared conventions live once, in website, and each repository's
+    # AGENTS.md links them. CodeRabbit won't follow a link, so read the pages
+    # directly, at website's default branch. AGENTS.md is a default pattern,
+    # and is listed so this list doesn't depend on whether it adds to them.
+    filePatterns:
+      - "**/AGENTS.md"
+      - "website:pages/conventions/*.md"
