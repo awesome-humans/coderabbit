@@ -57,7 +57,12 @@ knowledge_base:
     # and is listed so this list doesn't depend on whether it adds to them.
     # REVIEW.md says what each repository wants flagged, and at what severity.
     # It names no reviewer, so any agent that reviews a pull request can use it.
+    # Each entry applies to every file: a rule without a file scope of its own
+    # is skipped otherwise, and the writing style covers code comments too.
     filePatterns:
-      - "**/AGENTS.md"
-      - "**/REVIEW.md"
-      - "website:pages/conventions/*.md"
+      - files: "**/AGENTS.md"
+        applyTo: "**"
+      - files: "**/REVIEW.md"
+        applyTo: "**"
+      - files: "website:pages/conventions/*.md"
+        applyTo: "**"
