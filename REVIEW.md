@@ -10,10 +10,11 @@ Reserve Important for these. Everything else is Nit at most.
 
 - **A key that does nothing.** A key or value that CodeRabbit's schema doesn't define at that level, or one it has deprecated. The `config` job catches unknown keys, so report what it can't: a value of the right type that the schema's description says does something else.
 - **A blocking review.** `request_changes_workflow` set to `true`, which lets CodeRabbit block merges. Its reviews stay advisory.
-- **Text leaking into history.** `high_level_summary` set to `true`, which appends a summary to the pull request description, and so to the squash commit.
+- **Text leaking into history.** `high_level_summary` set to `true` without `high_level_summary_in_walkthrough`, or any `high_level_summary_placeholder`. Either puts a summary in the pull request description, and so in the squash commit.
 - **A guideline dropped.** A `knowledge_base.code_guidelines.filePatterns` list that no longer includes `**/AGENTS.md`, `**/REVIEW.md`, or `website:pages/conventions/*.md`.
 - **A path filter that hides content.** A `path_filters` entry that excludes `opinions/`, `templates/`, `skills/`, or a root Markdown file.
 - **A weakened validator.** A change to `scripts/strict_schema.py` or `validate.yml` that lets an unknown key through.
+- **A loosened review.** A change to this file that drops an Important item, raises the nit cap, or skips a class of finding, without saying why. The agent reviewer can read it from the pull request itself, so the change would soften its own review.
 
 ## Cap the nits
 
