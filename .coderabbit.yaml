@@ -55,6 +55,9 @@ knowledge_base:
     # AGENTS.md links them. CodeRabbit won't follow a link, so read the pages
     # directly, at website's default branch. AGENTS.md is a default pattern,
     # and is listed so this list doesn't depend on whether it adds to them.
+    # REVIEW.md says what each repository wants flagged, and at what severity.
+    # It names no reviewer, so any agent that reviews a pull request can use it.
     filePatterns:
       - "**/AGENTS.md"
+      - "**/REVIEW.md"
       - "website:pages/conventions/*.md"
