@@ -6,7 +6,7 @@ language: en-GB
 
 reviews:
   profile: chill
-  # Advisory only: CodeRabbit comments, and the owner's review stays the gate.
+  # Advisory only: CodeRabbit comments, and the owner reviews and merges.
   request_changes_workflow: false
   poem: false
   # Keep the summary out of the pull request description, which becomes the
