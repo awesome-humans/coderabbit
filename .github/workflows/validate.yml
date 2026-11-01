@@ -30,3 +30,12 @@ jobs:
             https://coderabbit.ai/integrations/schema.v2.json
           python3 scripts/strict_schema.py "$RUNNER_TEMP/schema.json" "$RUNNER_TEMP/strict.json"
           uvx check-jsonschema==0.38.2 --schemafile "$RUNNER_TEMP/strict.json" .coderabbit.yaml
+
+      # zizmor audits the workflows for security problems, at the version
+      # .github/requirements.txt pins. The token lets its online audits look up the
+      # actions the workflows pin, for known vulnerabilities and for commits that
+      # aren't on the action's repository.
+      - name: Audit the workflows with zizmor
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: uvx --with-requirements .github/requirements.txt zizmor .github/workflows
