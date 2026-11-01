@@ -1,6 +1,6 @@
 # Review instructions
 
-These instructions tune automated pull request review in this repository. The agent reviewer (currently CodeRabbit) reads them, and so can any other agent asked to review a pull request here.
+These instructions guide automated pull request reviews in this repository. The agent reviewer (currently CodeRabbit) reads them, and so can any other agent asked to review a pull request here.
 
 This repository holds `.coderabbit.yaml`, the central CodeRabbit configuration that every awesome-humans repository without its own file uses. CodeRabbit ignores an unknown key or a bad value silently, so a finding matters when it would change every repository's reviews without an error.
 
@@ -14,7 +14,7 @@ Reserve Important for these. Everything else is Nit at most.
 - **A guideline dropped.** A `knowledge_base.code_guidelines.filePatterns` list that no longer includes `**/AGENTS.md`, `**/REVIEW.md`, or `website:pages/conventions/*.md`.
 - **A path filter that hides content.** A `path_filters` entry that excludes `opinions/`, `templates/`, `skills/`, or a root Markdown file.
 - **A weakened validator.** A change to `scripts/strict_schema.py` or `validate.yml` that lets an unknown key through.
-- **A loosened review.** A change to this file that drops an Important item, raises the nit cap, or skips a class of finding, without saying why. The agent reviewer reads this file from the pull request's own branch, so such a change softens its own review.
+- **Weaker review rules.** A change to this file that drops an Important item, raises the nit cap, or skips a class of finding, without saying why. The agent reviewer reads this file from the pull request's own branch, so such a change softens its own review.
 
 ## Cap the nits
 
