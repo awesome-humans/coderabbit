@@ -51,7 +51,7 @@ reviews:
 
 knowledge_base:
   code_guidelines:
-    # The shared conventions live once, in website, and each repository's
+    # The shared conventions are in website, and each repository's
     # AGENTS.md links them. CodeRabbit won't follow a link, so read the pages
     # directly, at website's default branch. AGENTS.md is already a default
     # pattern. Listing it keeps it read whether this list adds to the defaults

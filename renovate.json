@@ -10,7 +10,7 @@
   "labels": ["dependencies"],
   "packageRules": [
     {
-      "description": "Action digest bumps are mechanical, and the workflow re-runs on the pull request, so they need no staged rollout.",
+      "description": "Bump every action in one pull request. The bumps are mechanical, and CI runs the workflows on that pull request.",
       "matchManagers": ["github-actions"],
       "groupName": "github actions"
     }

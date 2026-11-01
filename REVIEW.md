@@ -2,7 +2,7 @@
 
 These instructions guide automated pull request reviews in this repository. The agent reviewer (currently CodeRabbit) reads them, and so can any other agent asked to review a pull request here.
 
-This repository holds `.coderabbit.yaml`, the central CodeRabbit configuration that every awesome-humans repository without its own file uses. CodeRabbit ignores an unknown key or a bad value silently, so a finding matters when it would change every repository's reviews without an error.
+This repository contains `.coderabbit.yaml`, the CodeRabbit configuration for every awesome-humans repository that doesn't have its own. CodeRabbit silently ignores an unknown key or a bad value, so a finding matters when it would change every repository's reviews without an error.
 
 ## What Important means here
 
