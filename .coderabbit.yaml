@@ -51,10 +51,11 @@ reviews:
 
 knowledge_base:
   code_guidelines:
-    # The shared conventions live once, in website, and each repository's
+    # The shared conventions are in website, and each repository's
     # AGENTS.md links them. CodeRabbit won't follow a link, so read the pages
-    # directly, at website's default branch. AGENTS.md is a default pattern,
-    # and is listed so this list doesn't depend on whether it adds to them.
+    # directly, at website's default branch. AGENTS.md is already a default
+    # pattern. Listing it keeps it read whether this list adds to the defaults
+    # or replaces them.
     # REVIEW.md says what each repository wants flagged, and at what severity.
     # It names no reviewer, so any agent that reviews a pull request can use it.
     # Each entry applies to every file: a rule without a file scope of its own
